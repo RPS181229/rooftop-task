@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('coach_schedules', function (Blueprint $table) {
+        Schema::create('coaches', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('coach_id');
-            $table->string('day_of_week');
-            $table->string('available_at');
-            $table->string('available_until');
+            $table->string('name');
+            $table->bigInteger('timezone_id');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('coach_schedules');
+        Schema::dropIfExists('coaches');
     }
 };

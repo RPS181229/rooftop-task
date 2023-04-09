@@ -20,4 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/get-available-coaches', [TaskController::class, 'getAvailableCoaches'])
+Route::get('/get-available-coaches', [TaskController::class, 'getAvailableCoaches']);
+Route::get('/available-slots', [TaskController::class, 'getAvailableSloats']);
+Route::post('/book-slot', [TaskController::class, 'bookSlot']);

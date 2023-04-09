@@ -16,16 +16,16 @@ class CoachScheduleSeeder extends Seeder
     {
         
         CoachSchedule::truncate();
-        $csvData = fopen(base_path('database/csv/dataset.csv'), 'r');
+        $csvData = fopen(base_path('database/csv/coach_schedules.csv'), 'r');
         $transRow = true;
         while (($data = fgetcsv($csvData, 555, ',')) !== false) {
             if (!$transRow) {
                 CoachSchedule::create([
-                    'name' => $data['0'],
-                    'timezone' => $data['1'],
-                    'day_of_week' => $data['2'],
-                    'available_at' => $data['3'],
-                    'available_until' => $data['4']
+                    'coach_id' => $data['0'],
+                    // 'timezone' => substr($data['1'], 12),
+                    'day_of_week' => $data['1'],
+                    'available_at' => $data['2'],
+                    'available_until' => $data['3']
                 ]);
             }
             $transRow = false;
